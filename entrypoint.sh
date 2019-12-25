@@ -3,12 +3,6 @@ set -e
 
 cd "$GITHUB_WORKSPACE" || exit
 
-echo "==> Updating apk package lists"
-apk update
-
-echo "==> Installing Clang apk package"
-apk add clang
-
 echo "==> Finding .{c,h,cpp,hpp} files"
 echo "    (exclude directories: $ignore)"
 excludes=$(echo $ignore | sed 's/ /\\\|/g')
