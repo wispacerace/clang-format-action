@@ -3,10 +3,10 @@ set -e
 
 cd "$GITHUB_WORKSPACE" || exit
 
-echo "==> Finding .{c,h,cpp,hpp} files"
-echo "    (exclude directories: $ignore)"
 excludes=$(echo $1 | sed 's/ /\\\|/g')
-src=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\)\$" | cut -f 2 | grep -ve "^\($ignore\)/")
+echo "==> Finding .{c,h,cpp,hpp} files"
+echo "    (exclude directories: $excludes)"
+src=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\)\$" | cut -f 2 | grep -ve "^\($excludes\)/")
 
 echo "==> Configuring Git author"
 git config --global user.email clang-format@wisc.space
