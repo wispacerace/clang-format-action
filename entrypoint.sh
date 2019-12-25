@@ -21,7 +21,7 @@ git config --global user.name "Clang-Format"
 clang-format -style=file $src
 
 echo "==> Committing style changes"
-git commit -a -m 'apply clang-format'
+git commit -a -m 'apply clang-format' || true
 
 echo "==> pushing to $BRANCH"
 git push -u origin $BRANCH
