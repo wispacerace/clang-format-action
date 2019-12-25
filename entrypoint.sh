@@ -1,5 +1,5 @@
 #!/bin/sh -l
-set -eu
+set -e
 
 cd "$GITHUB_WORKSPACE" || exit
 
