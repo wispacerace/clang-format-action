@@ -12,7 +12,7 @@ echo "==> Configuring Git author"
 git config --global user.email clang-format@wisc.space
 git config --global user.name "Clang-Format"
 
-clang-format -style=file $src
+clang-format -style=file -i $src
 
 echo "==> Committing style changes"
 git commit -a -m 'apply clang-format' || true
